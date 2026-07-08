@@ -1,614 +1,148 @@
-<div align="center">
+# 🛡️ SOC Automation using Wazuh SIEM/EDR & Shuffle SOAR
 
+An end-to-end Security Operations Center (SOC) automation project that demonstrates real-time threat detection using **Wazuh SIEM/EDR** and automated incident response using **Shuffle SOAR**.
 
+---
 
-\# 🛡️ SOC Automation using Wazuh SIEM/EDR \& Shuffle SOAR
+## 📖 Overview
 
+This project demonstrates how a modern Security Operations Center (SOC) can detect and respond to threats automatically using open-source technologies.
 
+A Windows 11 endpoint is monitored using Sysmon and the Wazuh Agent. A credential dumping attack is simulated using Mimikatz. Wazuh detects the malicious activity, forwards the alert to Shuffle through a webhook, and Shuffle automatically sends an email notification.
 
-\### Automated Detection and Response for Credential Dumping Attacks
+This project demonstrates SIEM monitoring, EDR, detection engineering, and SOAR automation in a practical lab environment.
 
+---
 
+## 🏗️ Architecture
 
-\*\*Detect → Analyze → Automate → Notify\*\*
+![Architecture](architecture/architecture.png)
 
+---
 
+## 🚀 Features
 
-!\[Wazuh](https://img.shields.io/badge/Wazuh-SIEM-blue)
+- Real-time Endpoint Monitoring
+- Wazuh SIEM/EDR
+- Sysmon Log Collection
+- Credential Dumping Detection
+- Shuffle SOAR Automation
+- Webhook Integration
+- Automated Email Notification
 
-!\[Shuffle](https://img.shields.io/badge/Shuffle-SOAR-purple)
+---
 
-!\[Sysmon](https://img.shields.io/badge/Sysmon-Monitoring-green)
+## 💻 Tech Stack
 
-!\[Windows](https://img.shields.io/badge/Windows-11-blue)
-
-!\[Ubuntu](https://img.shields.io/badge/Ubuntu-22.04-orange)
-
-!\[License](https://img.shields.io/badge/License-MIT-red)
-
-
-
-</div>
-
-
-
-\---
-
-
-
-\# 📖 Overview
-
-
-
-This project demonstrates the implementation of an \*\*Automated Security Operations Center (SOC)\*\* using \*\*Wazuh SIEM/EDR\*\* and \*\*Shuffle SOAR\*\*.
-
-
-
-A Windows 11 endpoint is monitored using \*\*Sysmon\*\* and the \*\*Wazuh Agent\*\*. A credential dumping attack is simulated using \*\*Mimikatz\*\*. Wazuh detects the malicious activity, generates a high-severity alert, and forwards it to \*\*Shuffle SOAR\*\* using a webhook. Shuffle automatically processes the alert and sends an email notification to simulate automated incident response.
-
-
-
-The project demonstrates the complete lifecycle of a security event, including endpoint monitoring, threat detection, security alert generation, workflow automation, and analyst notification using open-source technologies.
-
-
-
-\---
-
-
-
-\# 🎯 Objectives
-
-
-
-\- Deploy a functional SOC lab
-
-\- Monitor Windows endpoints using Wazuh Agent
-
-\- Collect advanced telemetry using Sysmon
-
-\- Simulate credential dumping with Mimikatz
-
-\- Detect malicious activity using Wazuh SIEM
-
-\- Integrate Wazuh with Shuffle SOAR
-
-\- Automate incident response
-
-\- Generate automated email notifications
-
-
-
-\---
-
-
-
-\# 🏗️ Project Architecture
-
-
-
-> \*\*Architecture Diagram\*\*
-
-
-
-<p align="center">
-
-<img src="architecture/architecture.png" width="900">
-
-</p>
-
-
-
-\### Architecture Flow
-
-
-
-```
-
-Windows Endpoint
-
-&#x20;       │
-
-&#x20;       ▼
-
-&#x20;    Sysmon
-
-&#x20;       │
-
-&#x20;       ▼
-
-&#x20;  Wazuh Agent
-
-&#x20;       │
-
-&#x20;       ▼
-
-&#x20; Wazuh Manager
-
-&#x20;       │
-
-&#x20;       ▼
-
-&#x20;Security Alert
-
-&#x20;       │
-
-&#x20;       ▼
-
-&#x20;Webhook
-
-&#x20;       │
-
-&#x20;       ▼
-
-&#x20;Shuffle SOAR
-
-&#x20;       │
-
-&#x20;       ▼
-
-&#x20;Email Notification
-
-```
-
-
-
-\---
-
-
-
-\# 🚀 Features
-
-
-
-\- Real-Time Endpoint Monitoring
-
-\- Security Event Collection
-
-\- Sysmon Integration
-
-\- Wazuh SIEM/EDR
-
-\- Credential Dumping Detection
-
-\- Automated Alert Processing
-
-\- Webhook Integration
-
-\- Shuffle SOAR Automation
-
-\- Email Notifications
-
-\- Open-Source Security Stack
-
-
-
-\---
-
-
-
-\# 💻 Technology Stack
-
-
-
-| Component | Purpose |
-
-|------------|----------|
-
-| Windows 11 | Monitored Endpoint |
-
-| Ubuntu Server | Wazuh Manager |
-
+| Tool | Purpose |
+|------|---------|
+| Windows 11 | Endpoint |
+| Ubuntu Server | Wazuh Server |
 | Wazuh | SIEM / EDR |
-
-| Sysmon | Endpoint Telemetry |
-
-| Shuffle | SOAR Automation |
-
+| Sysmon | Endpoint Monitoring |
+| Shuffle | SOAR |
 | Mimikatz | Attack Simulation |
 
-| Gmail | Alert Notification |
+---
 
-
-
-\---
-
-
-
-\# 🔄 Project Workflow
-
-
+## 🔄 Workflow
 
 ```
-
 Windows Endpoint
-
-&#x20;       │
-
-&#x20;       ▼
-
-Execute Mimikatz
-
-&#x20;       │
-
-&#x20;       ▼
-
-Sysmon Generates Logs
-
-&#x20;       │
-
-&#x20;       ▼
-
-Wazuh Agent
-
-&#x20;       │
-
-&#x20;       ▼
-
-Wazuh Manager
-
-&#x20;       │
-
-&#x20;       ▼
-
-Detection Rule Triggered
-
-&#x20;       │
-
-&#x20;       ▼
-
-Webhook
-
-&#x20;       │
-
-&#x20;       ▼
-
-Shuffle Workflow
-
-&#x20;       │
-
-&#x20;       ▼
-
-Email Notification
-
+        │
+        ▼
+     Sysmon
+        │
+        ▼
+   Wazuh Agent
+        │
+        ▼
+  Wazuh Manager
+        │
+        ▼
+ Security Alert
+        │
+        ▼
+     Webhook
+        │
+        ▼
+ Shuffle SOAR
+        │
+        ▼
+ Email Notification
 ```
 
+---
 
+## 📸 Screenshots
 
-\---
+### Wazuh Dashboard
 
+![](screenshots/01-dashboard.png)
 
+### Connected Agent
 
-\# ⚔️ Attack Simulation
+![](screenshots/02-agent.png)
 
+### Mimikatz Execution
 
+![](screenshots/03-mimikatz.png)
 
-The monitored Windows endpoint was subjected to a controlled credential dumping attack using \*\*Mimikatz\*\*.
+### Wazuh Alert
 
+![](screenshots/04-alert.png)
 
+### Shuffle Workflow
 
-The purpose of the simulation was to validate the effectiveness of the detection pipeline implemented within the SOC environment.
+![](screenshots/06-workflow.png)
 
+### Email Notification
 
+![](screenshots/08-email.png)
 
-During execution:
+---
 
-
-
-\- Mimikatz generated suspicious endpoint activity.
-
-\- Sysmon recorded the process execution.
-
-\- Wazuh analyzed the telemetry.
-
-\- A high-severity alert was generated.
-
-\- Shuffle automatically processed the alert.
-
-\- An email notification was sent.
-
-
-
-\---
-
-
-
-\# 🔍 Detection Analysis
-
-
-
-Wazuh successfully detected suspicious activity generated by Mimikatz using predefined detection rules.
-
-
-
-The generated alert contained:
-
-
-
-\- Rule ID
-
-\- Alert Description
-
-\- Severity Level
-
-\- Timestamp
-
-\- Agent Name
-
-\- Event Details
-
-
-
-This validated the effectiveness of the deployed SIEM platform.
-
-
-
-\---
-
-
-
-\# 🤖 SOAR Automation
-
-
-
-After Wazuh generated the alert:
-
-
-
-1\. Alert forwarded through Webhook
-
-2\. Shuffle received JSON payload
-
-3\. Alert fields extracted
-
-4\. Email template generated
-
-5\. Analyst notified automatically
-
-
-
-The automation workflow reduced manual effort and demonstrated practical incident response automation.
-
-
-
-\---
-
-
-
-\# 📸 Screenshots
-
-
-
-\## 1️⃣ Wazuh Dashboard
-
-
-
-!\[](screenshots/01-dashboard.png)
-
-
-
-\---
-
-
-
-\## 2️⃣ Connected Agent
-
-
-
-!\[](screenshots/02-agent.png)
-
-
-
-\---
-
-
-
-\## 3️⃣ Mimikatz Execution
-
-
-
-!\[](screenshots/03-mimikatz.png)
-
-
-
-\---
-
-
-
-\## 4️⃣ Wazuh Alert
-
-
-
-!\[](screenshots/04-alert.png)
-
-
-
-\---
-
-
-
-\## 5️⃣ Alert Details
-
-
-
-!\[](screenshots/05-alert-details.png)
-
-
-
-\---
-
-
-
-\## 6️⃣ Shuffle Workflow
-
-
-
-!\[](screenshots/06-workflow.png)
-
-
-
-\---
-
-
-
-\## 7️⃣ JSON Payload
-
-
-
-!\[](screenshots/07-json.png)
-
-
-
-\---
-
-
-
-\## 8️⃣ Email Notification
-
-
-
-!\[](screenshots/08-email.png)
-
-
-
-\---
-
-
-
-\# 📂 Repository Structure
-
-
-
-```
-
-SOC-Automation-Wazuh-EDR
-
-│
-
-├── docs/
-
-├── screenshots/
-
-├── architecture/
-
-├── wazuh/
-
-├── shuffle/
-
-├── attack-simulation/
-
-├── README.md
-
-└── LICENSE
-
-```
-
-
-
-\---
-
-
-
-\# 📈 Results
-
-
+## ✅ Results
 
 | Test | Status |
-
 |------|--------|
-
 | Wazuh Installed | ✅ |
-
 | Agent Connected | ✅ |
-
 | Sysmon Logging | ✅ |
-
-| Mimikatz Executed | ✅ |
-
-| Threat Detected | ✅ |
-
+| Mimikatz Detected | ✅ |
 | Alert Generated | ✅ |
-
 | Shuffle Triggered | ✅ |
+| Email Notification Sent | ✅ |
 
-| Email Notification | ✅ |
+---
 
+## 📂 Repository Structure
 
+```
+SOC-Automation-Wazuh-EDR/
+├── docs/
+├── screenshots/
+├── architecture/
+├── wazuh/
+├── shuffle/
+├── attack-simulation/
+└── README.md
+```
 
-\---
+---
 
+## 📄 Documentation
 
+Detailed project documentation is available in:
 
-\# 🔮 Future Improvements
+`docs/SOC_Automation_Report.pdf`
 
+---
 
+## 👨‍💻 Author
 
-\- VirusTotal Integration
+**Omkar Dinkar Tandale**
 
-\- AbuseIPDB Enrichment
-
-\- Slack Notifications
-
-\- Microsoft Teams Integration
-
-\- TheHive Case Management
-
-\- MISP Threat Intelligence
-
-\- ServiceNow Integration
-
-\- Automatic Endpoint Isolation
-
-
-
-\---
-
-
-
-\# 📄 Documentation
-
-
-
-The complete technical report is available here:
-
-
-
-📄 \*\*\[SOC\_Automation\_Report.pdf](docs/SOC\_Automation\_Report.pdf)\*\*
-
-
-
-\---
-
-
-
-\# 👨‍💻 Author
-
-
-
-\*\*Omkar Dinkar Tandale\*\*
-
-
-
-Cybersecurity Enthusiast | SOC Analyst | Detection Engineering
-
-
-
-\- 📧 Email: omkartandale004@gmail.com
-
-\- 💼 LinkedIn: https://www.linkedin.com/in/omkar-tandale-562699235/
-
-\- 🐙 GitHub: https://github.com/OMKARTANDALE/
-
-\---
-
-
-
-\# ⭐ Support
-
-
-
-If you found this project useful, consider giving it a \*\*⭐ Star\*\*.
-
-
-
-It helps others discover the project and motivates further improvements.
-
+- 📧 omkartandale004@gmail.com
+- 💼 LinkedIn: https://www.linkedin.com/in/omkar-tandale-562699235/
+- 🐙 GitHub: https://github.com/OMKARTANDALE/
